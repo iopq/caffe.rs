@@ -1,10 +1,3 @@
-// use std::env;
-// fn main() {
-//     let caffe_dir = env::var("CAFFE_ROOT").unwrap();
-// println!("cargo:rustc-link-search=native={}/.build_release/lib",
-// caffe_dir);
-// }
-
 extern crate bindgen;
 
 // use std::process::Command;
@@ -34,6 +27,8 @@ fn main() {
     bindings.link("caffe");
     bindings.match_pat("ffi.hpp");
     bindings.header(caffe_header.to_str().unwrap());
+    bindings.clang_arg("-I");
+    bindings.clang_arg("/usr/lib/clang/3.5.0/include/");
     bindings.clang_arg(format!("-I{} -DCPU_ONLY", caffe_include.to_str().unwrap()));
 
     let bindings = bindings.generate();
