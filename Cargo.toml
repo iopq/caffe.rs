@@ -13,7 +13,7 @@ repository = "https://github.com/ajtulloch/caffe.rs/"
 libc = "0.1"
 
 [build-dependencies]
-bindgen = "0.15"
+bindgen = "0.16"
 
 [dev-dependencies]
 clippy = "*"
