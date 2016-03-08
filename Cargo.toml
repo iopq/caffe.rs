@@ -11,7 +11,7 @@ repository = "https://github.com/ajtulloch/caffe.rs/"
 
 [dependencies]
 libc = "0.1"
-clippy = "*"
 
 [build-dependencies]
 bindgen = "0.15"
+clippy = "*"
