@@ -21,8 +21,8 @@ impl Net {
     pub fn new(path: &Path, phase: Phase) -> Net {
         let path = util::to_c_str(path.to_str().unwrap());
         let phase = match phase {
-            Phase::Train => ffi::CAFFE_TRAIN,
-            Phase::Test => ffi::CAFFE_TEST,
+            Phase::Train => ffi::Enum_CaffePhase::CAFFE_TRAIN,
+            Phase::Test => ffi::Enum_CaffePhase::CAFFE_TEST,
         };
         let net = unsafe { Unique::new(ffi::CaffeNetInit(path, phase)) };
         Net::wrap(net)

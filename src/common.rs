@@ -21,8 +21,8 @@ pub enum Mode {
 /// Set the computation mode to CPU/GPU
 pub fn set_mode(mode: Mode) {
     let enum_mode = match mode {
-        Mode::GPU => ffi::CAFFE_GPU,
-        Mode::CPU => ffi::CAFFE_CPU,
+        Mode::GPU => ffi::Enum_CaffeMode::CAFFE_GPU,
+        Mode::CPU => ffi::Enum_CaffeMode::CAFFE_CPU,
     };
     unsafe { ffi::CaffeSetMode(enum_mode) }
 }
